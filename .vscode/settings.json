@@ -1,5 +1,5 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": ["AB1", "ABC", "ABC_backprop", "ABCD", "nlayer"],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
