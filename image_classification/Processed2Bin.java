@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:041fa23ca7b886179051c0483d6db90d1e7c76502253cf40830ff9b950ce5973
-size 712
+import java.io.IOException;
+
+public class Processed2Bin
+{
+      public static void main(String[] args) throws IOException
+      {
+            String[] imageProcessList = Image2GrayBin.listFiles("_processed.bin");
+            String[] argsToBGR2BMP;
+            String fileName;
+
+            for (String fileNameExt : imageProcessList)
+            {
+                  fileName = Image2GrayBin.IMG_DIR + fileNameExt.substring(0, fileNameExt.length() - ProcessGray.BIN_INPUT.length());
+                  argsToBGR2BMP = new String[] {"gray", Integer.toString(100), Integer.toString(100), Image2GrayBin.IMG_DIR + fileNameExt, fileName + ".bmp"};
+                  BGR2BMP.main(argsToBGR2BMP);
+            }
+      }
+}

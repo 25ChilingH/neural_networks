@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3817cbd2826ec0e9daa8aff591c2cdabf14733d8f8ac56f64bd60744280b9081
-size 350
+/*
+**
+** RgbQuad.java
+**
+** A member-variable-only class for holding the RGBQUAD C structure elements.
+** It is used by those programs the read in BMP files such as DibDump, BMP2Gray, BMP2OneByte and BMP2ThreeBytes
+**
+** Dr. Eric R. Nelson
+** February 2, 2009
+**/
+final class RgbQuad
+   {
+   int red;
+   int green;
+   int blue;
+   int reserved;
+   }

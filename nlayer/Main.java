@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:860f11170038e25f1fecb8c729bb578b414fb42be032f1cb68d011dfbd2c0a3c
-size 1794
+import java.io.*;
+import java.util.*;
+
+/*
+ * November 1, 2023
+ * 
+ * Chiling Han
+ * 
+ * The main class for running and training by backpropagation the n-layer perceptron network.
+ * It loads in a network configuration file that stores the settings of the network
+ * and also the various training hyperparameters. Then, it prints out relevant
+ * information to running or training such as the calculated truth table.
+ * 
+ * Example usage:
+ * java Main
+ */
+public class Main
+{
+   /*
+    * The main method interfaces between the user and the perceptron. Prints the network configuration and
+    * training hyperparameters before running/training. At the end of running, it will output the truth table.
+    * At the end of training, it will output training exit information such as the number of training
+    * iterations and the average error.
+    * 
+    *
+    * @param args            A 1D array of Strings that holds runtime arguments to configure the perceptron.
+    * @throws IOException    if there is an error during input or output operations
+    */
+   public static void main(String[] args) throws IOException
+   {
+      Perceptron neuralNet = new Perceptron();
+
+      neuralNet.setConfigParams(args);
+      switch (neuralNet.trainOrRun)
+      {
+         case "train":
+            neuralNet.allocateTrainingArrays();
+            neuralNet.populateArrays();
+            neuralNet.echoTrainingConfig();
+            neuralNet.trainAndReport();
+            break;
+         case "run":
+            neuralNet.allocateRunningArrays();
+            neuralNet.populateArrays();
+            neuralNet.echoRunConfig();
+            neuralNet.runAndReport();
+            break;
+      } // switch (trainOrRun)
+
+   } // public static void main(String args[]) throws IOException
+   
+} // public class Main
